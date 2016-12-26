@@ -28,31 +28,17 @@ then
   echo "FUCKING GFW";
 
   echo "FUCK ubuntu";
-  $sh_c "cat> /etc/apt/sources.list<<EOF
-deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
-EOF"
+  $sh_c "curl -sSL https://joway.github.io/repo/ubuntu-14.04.sources.list > /etc/apt/sources.list"
 
-  echo "FUCK python";
-  mkdir ~/.pip
-  $sh_c cat> ~/.pip/pip.conf<<EOF
-[global]
-index-url=http://mirrors.aliyun.com/pypi/simple/
-[install]
-trusted-host=mirrors.aliyun.com
-EOF
+	if ! [ -L ~/.pip ]; then
+		echo "FUCK python";
+		mkdir ~/.pip
+		$sh_c "curl -sSL https://joway.github.io/repo/pip.conf > ~/.pip/pip.conf"
+	fi
 
   if hash npm 2>/dev/null; then
     echo "FUCK npm";
- 	echo '\n#alias for cnpm\nalias cnpm="npm --registry=https://registry.npm.taobao.org \
+ 		echo '\n#alias for cnpm\nalias cnpm="npm --registry=https://registry.npm.taobao.org \
   	  --cache=$HOME/.npm/.cache/cnpm \
   	  --disturl=https://npm.taobao.org/dist \
   	  --userconfig=$HOME/.cnpmrc"' >> xshrc && source xshrc
