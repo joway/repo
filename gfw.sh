@@ -9,7 +9,7 @@ then
   echo "FUCKING GFW";
 
   echo "FUCK ubuntu";
-  cat> /etc/apt/sources.list<<EOF
+  sudo cat> /etc/apt/sources.list<<EOF
 deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
@@ -24,7 +24,7 @@ EOF
 
   echo "FUCK python";
   mkdir ~/.pip
-  cat> ~/.pip/pip.conf<<EOF
+  sudo cat> ~/.pip/pip.conf<<EOF
 [global]
 index-url=http://mirrors.aliyun.com/pypi/simple/
 [install]
