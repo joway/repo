@@ -30,7 +30,7 @@ then
   echo "FUCK ubuntu";
   $sh_c "curl -sSL https://joway.github.io/repo/ubuntu-14.04.sources.list > /etc/apt/sources.list"
 
-	if ! [ -L ~/.pip ]; then
+	if [ ! -d ~/.pip ]; then
 		echo "FUCK python";
 		mkdir ~/.pip
 		$sh_c "curl -sSL https://joway.github.io/repo/pip.conf > ~/.pip/pip.conf"
