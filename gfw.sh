@@ -4,7 +4,7 @@ ip=$(curl -s https://api.ipify.org)
 location=$(curl -s http://freeapi.ipip.net/$ip)
 xshrc=~/.bashrc
 
-
+# sudo 
 command_exists() {
 	command -v "$@" > /dev/null 2>&1
 }
@@ -23,6 +23,7 @@ if [ "$user" != 'root' ]; then
 	fi
 fi
 
+# check location
 if [[ $location == *"中国"* ]]
 then
   echo "FUCKING GFW";

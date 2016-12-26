@@ -1,4 +1,6 @@
-# Repo
+# [Joway's Mirror](https://github.com/joway/repo)
+
+一些环境配置时常用的文件和脚本
 
 ## Fuck GFW
 
