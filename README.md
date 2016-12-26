@@ -8,7 +8,7 @@
 
 ### Usage
 
-    curl -sSL https://joway.github.io/repo/gfw.sh | bash
+    curl http://repo.joway.wang/gfw.sh | bash
 
 ### 源选择:
 
