@@ -4,12 +4,31 @@ ip=$(curl -s https://api.ipify.org)
 location=$(curl -s http://freeapi.ipip.net/$ip)
 xshrc=~/.bashrc
 
+
+command_exists() {
+	command -v "$@" > /dev/null 2>&1
+}
+sh_c='sh -c'
+if [ "$user" != 'root' ]; then
+	if command_exists sudo; then
+		sh_c='sudo -E sh -c'
+	elif command_exists su; then
+		sh_c='su -c'
+	else
+		cat >&2 <<-'EOF'
+		Error: this installer needs the ability to run commands as root.
+		We are unable to find either "sudo" or "su" available to make this happen.
+		EOF
+		exit 1
+	fi
+fi
+
 if [[ $location == *"中国"* ]]
 then
   echo "FUCKING GFW";
 
   echo "FUCK ubuntu";
-  sudo cat> /etc/apt/sources.list<<EOF
+  $sh_c "cat> /etc/apt/sources.list<<EOF
 deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
@@ -20,11 +39,11 @@ deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted univer
 deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
 deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
 deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
-EOF
+EOF"
 
   echo "FUCK python";
   mkdir ~/.pip
-  sudo cat> ~/.pip/pip.conf<<EOF
+  $sh_c cat> ~/.pip/pip.conf<<EOF
 [global]
 index-url=http://mirrors.aliyun.com/pypi/simple/
 [install]
