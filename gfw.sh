@@ -29,12 +29,12 @@ then
   echo "FUCKING GFW";
 
   echo "FUCK ubuntu";
-  $sh_c "curl -sSL https://joway.github.io/repo/ubuntu-14.04.sources.list > /etc/apt/sources.list"
+  $sh_c "curl http://repo.joway.wang/ubuntu-14.04.sources.list > /etc/apt/sources.list"
 
 	if [ ! -d ~/.pip ]; then
 		echo "FUCK python";
 		mkdir ~/.pip
-		$sh_c "curl -sSL https://joway.github.io/repo/pip.conf > ~/.pip/pip.conf"
+		$sh_c "curl http://repo.joway.wang/pip.conf > ~/.pip/pip.conf"
 	fi
 
   if hash npm 2>/dev/null; then
