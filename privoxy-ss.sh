@@ -1,3 +1,4 @@
+sudo apt-get update
 sudo apt-get install -y privoxy
 echo 'forward-socks5   /               10.0.2.2:1080 . '
 sudo /etc/init.d/privoxy restart
