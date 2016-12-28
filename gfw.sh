@@ -30,9 +30,9 @@ then
 
   echo "FUCK ubuntu";
 	UBUNTU_VER=$(lsb_release -sr)
-	if [ "$UBUNTU_VER" != '14.04']; then
+	if [ "$UBUNTU_VER" == '14.04' ]; then
   	$sh_c "curl http://repo.joway.wang/ubuntu-14.04.sources.list > /etc/apt/sources.list"
-	elif [ "$UBUNTU_VER" != '16.04']; then
+	elif [ "$UBUNTU_VER" == '16.04' ]; then
 		$sh_c "curl http://repo.joway.wang/ubuntu-16.04.sources.list > /etc/apt/sources.list"
 	fi
 
