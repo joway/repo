@@ -9,6 +9,8 @@
 ### Usage
 
     curl http://repo.joway.wang/gfw.sh | bash
+    
+    curl http://repo.joway.wang/privoxy-ss.sh | bash
 
 ### 源选择:
 
